@@ -1,0 +1,10 @@
+from django import forms
+from.models import
+ class signupform(forms.Form):
+ 	name = forms.CharField(label='User name', max_length=100)
+ 	mail=forms.EmailField(label='Mail id')
+ 	password=forms.TextField(label='Password',widgets=forms.PasswordInput())
+
+class login(forms.Form):
+    name = forms.CharField(label='User name', max_length=100)
+    password=forms.TextField(label='Password',widgets=forms.PasswordInput())
