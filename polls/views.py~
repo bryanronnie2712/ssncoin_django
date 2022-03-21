@@ -1,0 +1,68 @@
+
+from django.shortcuts import render
+from django import forms
+from django.http import HttpResponse
+from django.template import loader
+from.models import User
+from.forms import signupform,loginform
+#!/usr/bin/env python 
+def index(request):
+     #template = loader.get_template('1st page.html')
+     return render(request, 'polls/index.html')
+     #return HttpResponse(template.render(request))
+def signup(request):
+	form=signupform()
+	if(request.method =="POST"):
+		form =signupform(request.POST)
+	if(form.is_valid()):     
+		p=User.objects.filter(name=form.cleaned_data["name"])
+		print("objects is ")
+		print(form.cleaned_data["name"])
+		#form.checkuser()
+		#curr_user=user.objects.get(name=form["name"],password=form["password"],mail=form["mail"])
+		if(p==0):
+			curr_user=User.objects.create(name=form.cleaned_data["name"],password=form.cleaned_data["password"],mail=form.cleaned_data["mail"])
+			#print("curr suer is ")
+			print(curr_user)
+			return render(request, 'polls/index.html')
+	context={"form":form}
+	return render(request,'polls/signup.html',context )
+def login(request):
+	if(request.method=="POST"):
+		form =loginform(request.POST)
+		if (form.is_valid()==True):
+			#form.check()
+			#form.process()
+			name=form.cleaned_data["name"]
+			pwd=form.cleaned_data['password']
+			print("name is")
+			print(form.cleaned_data)
+			try:
+				print("p user is ")
+				print(User.objects.get(name=name))
+				p=User.objects.get(name=name)	
+				print("p is ")
+				print(p)
+			except:
+				p=None
+			#print(p.count())
+			if(p==None):	
+				print("user is")
+				print(User)
+				form=signupform()
+				return render(request,'polls/signup.html',{"form":form})
+			elif((p.name==name and p.password==pwd)!=True):
+				return render(request,'polls/login.html',{"form":form})
+	form=loginform()
+	return render(request,'polls/login.html',{"form":form})
+# Create your views here.
+
+#def home(request):s
+
+
+
+
+
+
+
+

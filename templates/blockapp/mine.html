@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>vhs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+.searchbtn{
+	color: black;
+	background: white;
+}
+
+  .container
+  {
+  max-width:100%;
+  box-sizing:border-box;
+  }
+  .jumb1
+  {
+  height:45px;
+  box-sizing:border-box;
+  padding-top:0px;
+  padding-bottom:100px;
+  background-size: ;
+background-color: bisque;
+border: 3% #fff1f0;
+border-left-width: 3px;
+border-left-style: solid;
+border-bottom-width: 3px;
+border-bottom-style: solid;
+border-top-width: 3px;
+border-top-style: solid;
+border-right-width: 3px;
+border-right-style: solid;
+margin-top: 30px;
+  }
+  .align right{
+  text-align:right;
+  }
+  </style>
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:coral">
+  <a class="navbar-brand" href="#">VHS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left:65%">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href=".">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="logout">Logout</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 searchbtn" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</header>
+<div class="container" style="background-color:coffee">
+  <div class="jumbotron jumb1" >
+    <h1 style=text-align:center> ssn coin
+    </h1> 
+    </div>     
+<div class="container" >
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <ul>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+
+  <button type="submit" class="registerbtn">Registeeer</button>
+</form>
+
+<li><a href="#">make a block</a></li>
+</ul>
+
+</div>
